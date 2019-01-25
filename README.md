@@ -1,6 +1,6 @@
-# Run project
+# Scenario
 
-- Clone project.
+- Clone project `git clone git@github.com:gogolinsky/buttons.git buttons`.
 - Install composer packages: `composer install`.
 - Init dev environment: `./init`, choose `development – 0`.
 - Create databases: `touch databases/sqlite.db && touch databases/sqlite-test.db`
