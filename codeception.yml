@@ -1,0 +1,6 @@
+include:
+    - api
+paths:
+    log: api/runtime/logs
+settings:
+    colors: true
