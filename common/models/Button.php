@@ -30,4 +30,13 @@ class Button extends ActiveRecord
             ['type', 'in', 'range' => [self::TYPE_BUTTON, self::TYPE_SUBMIT, self::TYPE_RESET]],
         ];
     }
+
+    public function fields()
+    {
+        return [
+            'id' => 'id',
+            'type' => 'type',
+            'value' => 'value',
+        ];
+    }
 }

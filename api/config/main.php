@@ -12,28 +12,13 @@ return [
     'bootstrap' => [
         'log',
         [
-            'class' => 'yii\filters\ContentNegotiator',
+            'class' => \yii\filters\ContentNegotiator::class,
             'formats' => [
                 'application/json' => 'json',
-                'application/xml' => 'xml',
             ],
         ],
     ],
     'components' => [
-        'request' => [
-            'parsers' => [
-                'application/json' => \yii\web\JsonParser::class,
-            ],
-        ],
-        'response' => [
-            'formatters' => [
-                'json' => [
-                    'class' => \yii\web\JsonResponseFormatter::class,
-                    'prettyPrint' => YII_DEBUG,
-                    'encodeOptions' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
-                ],
-            ],
-        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -48,7 +33,7 @@ return [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                'GET /api/v1/buttons' => '/v1/buttons/index',
+                '/api/v1/buttons' => '/v1/buttons/index',
             ],
         ],
     ],

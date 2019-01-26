@@ -3,20 +3,25 @@
 namespace api\controllers\v1;
 
 use common\models\Button;
-use yii\console\Controller;
+use yii\filters\VerbFilter;
+use yii\web\Controller;
 
 class ButtonsController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'index' => ['GET'],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
-        $buttons = Button::find()->orderBy(['id' => SORT_ASC])->all();
-
-        return array_map(function(Button $button) {
-            return [
-                'id' => $button->id,
-                'type' => $button->type,
-                'value' => $button->value,
-            ];
-        }, $buttons);
+        return Button::find()->all();
     }
 }
